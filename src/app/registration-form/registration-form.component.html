@@ -1,0 +1,71 @@
+<div>
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div *ngIf="formNotValid">
+      <ul>
+        <li *ngIf="registerForm.get('firstname')?.invalid">{{ firstNameError }}</li>
+        <li *ngIf="registerForm.get('lastname')?.invalid">{{ lastNameError }}</li>
+        <li *ngIf="registerForm.get('email')?.invalid">{{ emailError }}</li>
+        <li *ngIf="registerForm.get('contact')?.invalid">{{ contactError }}</li>
+      </ul>
+    </div>
+    <div class="input">
+      <input placeholder="Enter first name" formControlName="firstname" class="input" [class.invalid]="
+          registerForm.get('firstname')?.invalid &&
+          (registerForm.get('firstname')?.dirty ||
+          registerForm.get('firstname')?.touched || isSubmitted
+          )
+        " />
+      <span *ngIf=" registerForm.get('firstname')?.invalid &&
+      (registerForm.get('firstname')?.dirty ||
+      registerForm.get('firstname')?.touched || isSubmitted
+      )">
+        First Name is required!
+      </span>
+    </div>
+    <div class="input">
+      <input placeholder="Enter last name" formControlName="lastname" [class.invalid]="
+          registerForm.get('lastname')?.invalid &&
+          (registerForm.get('lastname')?.dirty ||
+          registerForm.get('lastname')?.touched || isSubmitted
+          )" />
+      <span *ngIf=" registerForm.get('lastname')?.invalid &&
+           (registerForm.get('lastname')?.dirty ||
+           registerForm.get('lastname')?.touched || isSubmitted
+           )">
+        First Name is required!
+      </span>
+    </div>
+    <div class="input">
+      <input placeholder="Enter email" formControlName="email" [class.invalid]="
+      registerForm.get('email')?.invalid &&
+      (registerForm.get('email')?.dirty ||
+      registerForm.get('email')?.touched || isSubmitted
+      )" />
+      <span *ngIf=" registerForm.get('email')?.invalid &&
+       (registerForm.get('email')?.dirty ||
+       registerForm.get('email')?.touched || isSubmitted
+       )">
+        First Name is required!
+      </span>
+    </div>
+    <div class="input">
+      <input placeholder="Enter contact" formControlName="contact" [class.invalid]="
+      registerForm.get('contact')?.invalid &&
+      (registerForm.get('contact')?.dirty ||
+      registerForm.get('contact')?.touched || isSubmitted
+      )" />
+      <span *ngIf=" registerForm.get('contact')?.invalid &&
+       (registerForm.get('contact')?.dirty ||
+       registerForm.get('contact')?.touched || isSubmitted
+       )">
+        First Name is required!
+      </span>
+    </div>
+    <div class="input">
+      <button type="submit">
+        Submit
+      </button>
+    </div>
+  </form>
+
+</div>
