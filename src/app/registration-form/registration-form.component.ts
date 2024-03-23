@@ -34,13 +34,6 @@ export class RegistrationFormComponent implements OnInit {
     contact: new FormControl(''),
   });
 
-  // registerForm = this.fb.group({
-  //   firstname: ['', Validators.required],
-  //   lastname: ['', Validators.required],
-  //   email: ['', Validators.required, Validators.email],
-  //   contact: ['', Validators.required]
-  // })
-
   ngOnInit(): void {
 
     this.registerForm = this.fb.group({
@@ -54,14 +47,10 @@ export class RegistrationFormComponent implements OnInit {
 
   onSubmit() {
 
-    console.log(this.registerForm.get('firstname')?.invalid)
     console.log(
       this.registerForm.value,
       this.registerForm.invalid
     )
-    // if (this.registerForm.get('firstname')?.invalid) {
-    //   this.formNotValid = true
-    // }
 
     if (this.registerForm.invalid) {
       this.formNotValid = true
